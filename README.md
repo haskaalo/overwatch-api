@@ -4,8 +4,8 @@ Overwatch-api is available as a [webserver api](https://github.com/tree/master/p
 
 ## Docs
 
-* [owapi (NPM module)](https://github.com/tree/master/packages/owapi#owapi)
-* [webapi (OW API as webserver)](https://github.com/tree/master/packages/webapi#webapi)
+* [owapi (NPM module)](https://github.com/haskaalo/overwatch-api/tree/master/packages/owapi#owapi)
+* [webapi (OW API as webserver)](https://github.com/haskaalo/overwatch-api/tree/master/packages/webapi#webapi)
 
 ## License
 
