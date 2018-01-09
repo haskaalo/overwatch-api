@@ -38,7 +38,7 @@ const generalData = await owapi.general('totally-not-existing-user', platform).c
 
 * If platform doesn't exist, it return a type error (might go)
 
-### .getGeneralStats(btag, ?platform)
+### .getGeneralStats(btag, ?platform, ?html)
 Return general stats about a player such as level, rank, profile icon and more.
 
 Example output:
@@ -82,8 +82,7 @@ const allStats = Object.assign(generalData, {quickplay: quickplayData}, {competi
 
 Just reply what's coming out from https://playoverwatch.com/en-us/search/account-by-name/
 
-  #### Reminder
-  It reject `'PLAYER_NOT_EXIST'` if user doesn't exist.
+Reminder: It reject `'PLAYER_NOT_EXIST'` if user doesn't exist.
 
 ### .getRawHtmlFromBtag(btag, ?platform)
 
