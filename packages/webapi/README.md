@@ -34,7 +34,7 @@ Return detailed stats on a mode about a player.
 ## /v1/general/:btag/:platform
 
 * `:btag`: Battle.net Tag, PSN Tag, XBL, Tag
-* `:platform`: One of the [.platforms]
+* `:platform`: One of the [.platforms](https://github.com/haskaalo/overwatch-api/tree/master/packages/owapi/#platforms)
 
 Output general data about a player. 
 
