@@ -1,3 +1,4 @@
+
 sudo: required
 
 language: node_js
@@ -16,9 +17,13 @@ services:
 
 script: yarn test
 
-after_success:
+before_deploy:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
-  - ./scripts/docker.sh
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: scripts/docker.sh
   on:
     branch: master
     tags: true
