@@ -1,7 +1,7 @@
 FROM node:8-alpine
 
 WORKDIR /usr/src/app
-ADD . ./usr/src/app
+ADD ./packages/owapi/* ./usr/src/app
 
 RUN yarn
 
