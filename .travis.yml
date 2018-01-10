@@ -13,17 +13,5 @@ env:
 
 services:
   - redis-server
-  - docker
 
 script: yarn test
-
-before_deploy:
-  - docker login -u $DOCKER_USER -p $DOCKER_PASS
-
-deploy:
-  skip_cleanup: true
-  provider: script
-  script: ./scripts/docker.sh
-  on:
-    branch: master
-    tags: true
