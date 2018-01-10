@@ -5,13 +5,27 @@ language: node_js
 
 node_js:
   - "8"
+  
+cache:
+  yarn: true
 
 dist: trusty
 
 env:
   - REDIS_URL="redis://:@localhost:6379"
+  - COMMIT=${TRAVIS_COMMIT::8}
 
 services:
   - redis-server
+  - docker
 
 script: yarn test
+
+after_success:
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - export REPO=haskaalo/overwatch-api
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker build -t $REPO:$COMMIT ./packages/webapi
+  - docker tag $REPO:$COMMIT $REPO:$TAG
+  - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+  - docker push $REPO
