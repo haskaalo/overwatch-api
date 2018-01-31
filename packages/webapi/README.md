@@ -5,8 +5,7 @@ Overwatch API made on Koa.
 ## Setup (Docker)
 
 1. `docker pull haskaalo/overwatch-api:latest`
-2. `docker pull redis` (Not required)
-3. `docker run overwatch-api:latest --link redis -e REDIS_URL=redis://:@redis:6379` (Ignore --link ... and everything after it if you didn't do step 2)
+3. `docker run overwatch-api:latest -e REDIS_URL=redis://myuser:supersecretpwd@myhost:6379` (you can ignore `-e REDIS_URL...` if you don't want caching)
 
 ## v1 api
 
