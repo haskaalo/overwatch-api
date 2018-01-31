@@ -4,7 +4,7 @@ const owapi = require('owapi');
 
 // Redirect old clients to new path
 router.get('/stats/:btag/:platform', async (ctx) => {
-    await ctx.redirect(`/stats/${ctx.params.btag}/${ctx.params.platform}`);
+    await ctx.redirect(`/v1/all/${ctx.params.btag}/${ctx.params.platform}`);
 });
 
 // Return all stats for a btag
