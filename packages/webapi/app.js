@@ -8,8 +8,8 @@ const router = new Router();
 
 
 let redis = undefined;
-if (process.env.REDIS_URL) {
-    redis = process.env.REDIS_URL ? new ioredis(process.env.REDIS_URL) : undefined;
+if (process.env.REDIS_URL !== undefined) {
+    redis = new ioredis(process.env.REDIS_URL);
 }
 
 /*
@@ -44,7 +44,7 @@ app.use(async (ctx, next) => {
 * Cache routes for 5 minutes
 */
 app.use(async (ctx, next) => {
-    if (redis) {
+    if (redis !== undefined) {
         const cache = await redis.get(`owapi-${md5(ctx.path)}`);
 
         if (cache !== null) {
