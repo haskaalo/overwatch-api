@@ -7,7 +7,7 @@ owapi is a module to get full detailed stats about a player on specified mode (q
 ```js
 const owapi = require('owapi');
 
-const stats = await owapi.getAllStats('Trev-11289', 'us');
+const stats = await owapi.getAllStats('Trev-11289', 'pc');
 
 console.log(stats)
 ```

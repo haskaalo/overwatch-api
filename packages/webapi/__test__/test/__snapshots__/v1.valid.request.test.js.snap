@@ -9050,7 +9050,7 @@ Object {
 }
 `;
 
-exports[`Route mode /v1/mode/quickplay/:btag/us 1`] = `
+exports[`Route mode /v1/mode/quickplay/:btag/pc 1`] = `
 Object {
   "career_stats": Object {
     "ALL HEROES": Object {

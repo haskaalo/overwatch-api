@@ -15,13 +15,12 @@ beforeAll(() => {
 
     nock('https://playoverwatch.com')
     .persist()
-    .get('/en-us/career/pc/us/Trev-11289')
-    .replyWithFile(200, __dirname + '/../data/trev.html');
-
-    nock('https://playoverwatch.com')
-    .persist()
     .get('/en-us/search/account-by-name/Trev%2311289')
-    .reply(200, [{ 'platform': 'pc', 'careerLink': '/career/pc/Trev-11289', 'platformDisplayName': 'Trev#11289', 'level': 524, 'portrait': 'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png' }]);
+    .reply(200, [{'platform':'pc',
+    'name':'Trev#11289',
+    'urlName':'Trev-11289',
+    'level':555,
+    'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png'}]);
 });
 
 afterAll(async () => {
@@ -42,7 +41,7 @@ describe('Route all', () => {
     });
 
     test('/v1/all/:btag/:us', async () => {
-        const rp = await request.get('/v1/all/Trev-11289/us')
+        const rp = await request.get('/v1/all/Trev-11289/pc')
         .expect(200)
         .expect('content-type', 'application/json; charset=utf-8');
 
@@ -60,7 +59,7 @@ describe('Route general', async () => {
     });
 
     test('/v1/general/:btag/:platform', async () => {
-        const rp = await request.get('/v1/general/Trev-11289/us')
+        const rp = await request.get('/v1/general/Trev-11289/pc')
         .expect(200)
         .expect('content-type', 'application/json; charset=utf-8');
     
@@ -77,7 +76,7 @@ describe('Route mode' , async () => {
         expect(JSON.parse(rp.text)).toMatchSnapshot();
     });
 
-    test('/v1/mode/quickplay/:btag/us', async () => {
+    test('/v1/mode/quickplay/:btag/pc', async () => {
         const rp = await request.get('/v1/mode/quickplay/Trev-11289')
         .expect(200)
         .expect('content-type', 'application/json; charset=utf-8');

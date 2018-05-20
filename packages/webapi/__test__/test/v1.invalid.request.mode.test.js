@@ -10,7 +10,7 @@ function notValidUser() {
     .reply(200, []);
 
     nock('https://playoverwatch.com')
-    .get('/en-us/career/pc/us/not_existinguserxd')
+    .get('/en-us/career/pc/not_existinguserxd')
     .reply(404, 'xd');
 };
 
@@ -42,7 +42,7 @@ test('Not a existing user request /v1/mode/:mode/:btag', async () => {
 test('Not a existing user request /v1/mode/:mode/:btag/:platform', async () => {
     notValidUser();
 
-    const rp = await request.get('/v1/mode/quickplay/not_existinguserxd/us')
+    const rp = await request.get('/v1/mode/quickplay/not_existinguserxd/pc')
     .expect(400)
     .expect('content-type', 'application/json; charset=utf-8');
 
@@ -68,7 +68,7 @@ test('Not a valid mode /v1/mode/:mode/:btag', async () => {
 test('Not a valid mode /v1/mode/:mode/:btag/:platform', async () => {
     notValidUser();
 
-    const rp = await request.get('/v1/mode/whatmode/not_existinguserxd/us')
+    const rp = await request.get('/v1/mode/whatmode/not_existinguserxd/pc')
     .expect(400)
     .expect('content-type', 'application/json; charset=utf-8');
 
