@@ -22,5 +22,5 @@ module.exports = {
     getAllStats,
     getModeStats: stats,
     getGeneralStats: general,
-    platforms: ['us', 'eu', 'kr', 'cn', 'xbl', 'psn']
+    platforms: ['pc', 'xbl', 'psn']
 };

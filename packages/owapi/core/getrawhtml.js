@@ -2,10 +2,7 @@ const rp = require('request-promise');
 const getAccountByName = require('./getaccountbyname');
 
 const regPathFix = {
-    us: '/career/pc/us/',
-    eu: '/career/pc/eu/',
-    kr: '/career/pc/kr',
-    cn: '/career/pc/cn/',
+    pc: '/career/pc/',
     xbl: '/career/xbl/',
     psn: '/career/psn/'
 };
@@ -23,8 +20,7 @@ async function getRawHtmlFromBtag(btag, platform) {
             if (accountData.length === 0) {
                 throw 'PLAYER_NOT_EXIST';
             }
-
-            uri = `https://playoverwatch.com/en-us${accountData[0].careerLink}`;
+            uri = `https://playoverwatch.com/en-us/career/${accountData[0].platform}/${accountData[0].urlName}`;
         }
         const getProfileData = await rp({
             uri,
