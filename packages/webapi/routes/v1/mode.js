@@ -27,6 +27,8 @@ router.get('/v1/mode/:mode/:btag/:platform', async (ctx) => {
     const modeStats = await owapi.getModeStats(ctx.params.btag, ctx.params.mode, ctx.params.platform).catch((err) => {
         if (err === 'PLAYER_NOT_EXIST') {
             return ctx.throw(400, 'Player do not exist.');
+        } else if (err === 'ACCOUNT_PRIVATE') {
+            return ctx.throw(401, 'Player account is private');
         } else {
             return ctx.throw(err);
         }

@@ -7,6 +7,8 @@ router.get('/v1/general/:btag', async (ctx) => {
     const getGeneral = await owapi.getGeneralStats(ctx.params.btag).catch((err) => {
         if (err === 'PLAYER_NOT_EXIST') {
             return ctx.throw(400, 'Player do not exist.');
+        } else if (err === 'ACCOUNT_PRIVATE') {
+            return ctx.throw(401, 'Player account is private');
         } else {
             return ctx.throw(err);
         }
@@ -24,6 +26,8 @@ router.get('/v1/general/:btag/:platform', async (ctx) => {
     const getGeneral = await owapi.getGeneralStats(ctx.params.btag, ctx.params.platform).catch((err) => {
         if (err === 'PLAYER_NOT_EXIST') {
             return ctx.throw(400, 'Player do not exist.');
+        } else if (err === 'ACCOUNT_PRIVATE') {
+            return ctx.throw(401, 'Player account is private');
         } else {
             return ctx.throw(err);
         }
