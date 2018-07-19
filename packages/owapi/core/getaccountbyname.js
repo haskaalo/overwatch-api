@@ -7,12 +7,11 @@ async function getAccountByName(btag) {
         json: true,
         timeout: 10000
     });
-
-    if (searchUser.length !== 0) {
-        return searchUser;
-    } else {
+    if (searchUser.length == 0) {
         throw 'PLAYER_NOT_EXIST';
     }
+
+    return searchUser;
 }
 
 module.exports = getAccountByName;

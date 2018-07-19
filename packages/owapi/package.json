@@ -1,6 +1,6 @@
 {
   "name": "owapi",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "index.js",
   "repository": "https://github.com/haskaalo/overwatch-api.git",
   "keywords": ["overwatch", "api", "ow", "blizzard"],
