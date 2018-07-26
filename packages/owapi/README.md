@@ -35,6 +35,17 @@ const generalData = await owapi.general('totally-not-existing-user', platform).c
 
 ...
 ```
+* If player account is private, it reject a string `'ACCOUNT_PRIVATE'`
+
+Example:
+```js
+const generalData = await owapi.general('some-user-with-private-account', platform).catch((err) => {
+  if (err === 'ACCOUNT_PRIVATE') {
+    res.send('This player account is private D:')
+    return;
+  }
+});
+```
 
 * If platform doesn't exist, it return a type error (might go)
 

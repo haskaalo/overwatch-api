@@ -20,7 +20,7 @@ async function getRawHtmlFromBtag(btag, platform) {
                 throw err;
             });
 
-            if (accountData[0].visibility.isPrivate === true) {
+            if (accountData[0].visibility.isPrivate === true || accountData[0].visibility.isFriendsOnly === true) {
                 throw 'ACCOUNT_PRIVATE';
             }
 

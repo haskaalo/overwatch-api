@@ -31,7 +31,8 @@ beforeAll(() => {
     "name":"Trev#11289",
     "urlName":"Trev-11289",
     "level":555,
-    "portrait":"https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png"}]);
+    "portrait":"https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png",
+    'visibility':{'name': 'PrivateVisibility','isPublic': true, 'isPrivate': false, 'isFriendsOnly': false}}]);
 });
 
 afterAll(async () => {

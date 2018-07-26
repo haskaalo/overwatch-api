@@ -5,7 +5,8 @@
   "repository": "https://github.com/haskaalo/overwatch-api.git",
   "author": "haskaalo",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "jest"
   },
   "license": "MIT",
   "private": true,
@@ -15,6 +16,6 @@
     "koa-compress": "^2.0.0",
     "koa-router": "^7.3.0",
     "md5": "^2.2.1",
-    "owapi": "^2.0.1"
+    "owapi": "^2.0.3"
   }
 }

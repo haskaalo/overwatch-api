@@ -18,7 +18,8 @@ describe('function getAccountByName', () => {
         'name':'Trev#11289',
         'urlName':'Trev-11289',
         'level':555,
-        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png'}]
+        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png',
+        'visibility':{'name': 'PrivateVisibility','isPublic': true, 'isPrivate': false, 'isFriendsOnly': false}}]
 
         nock('https://playoverwatch.com')
         .get('/en-us/search/account-by-name/Trev%2311289')
@@ -35,6 +36,19 @@ describe('function getRawHtmlFromBtag', () => {
         .toEqual(new TypeError('totally not a valid platform is not a valid platform'));
     });
 
+    test('Throw ACCOUNT_PRIVATE when account is private', async () => {
+        nock('https://playoverwatch.com')
+        .get('/en-us/search/account-by-name/Trev%2311289')
+        .reply(200, [{
+            'name':'Trev#11289',
+            'urlName':'Trev-11289',
+            'level':555,
+            'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png',
+            'visibility':{'name': 'PrivateVisibility','isPublic': false, 'isPrivate': true, 'isFriendsOnly': false}}])
+
+        await expect(owapi.getRawHtmlFromBtag('Trev-11289')).rejects.toBe('ACCOUNT_PRIVATE');
+    });
+
     test('Throw PLAYER_NOT_EXIST when receive 404', async () => {
         nock('https://playoverwatch.com')
         .get('/en-us/career/pc/Trev-11289')
@@ -46,7 +60,8 @@ describe('function getRawHtmlFromBtag', () => {
         'name':'Trev#11289',
         'urlName':'Trev-11289',
         'level':555,
-        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png'}]);
+        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png',
+        'visibility':{'name': 'PrivateVisibility','isPublic': true, 'isPrivate': false, 'isFriendsOnly': false}}]);
 
         await expect(owapi.getRawHtmlFromBtag('Trev-11289', 'pc')).rejects.toBe('PLAYER_NOT_EXIST')
     });
@@ -62,7 +77,8 @@ describe('function getRawHtmlFromBtag', () => {
         'name':'Trev#11289',
         'urlName':'Trev-11289',
         'level':555,
-        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png'}]);
+        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png',
+        'visibility':{'name': 'PrivateVisibility','isPublic': true, 'isPrivate': false, 'isFriendsOnly': false}}]);
 
         expect(owapi.getRawHtmlFromBtag('Trev-11289', 'pc'))
         .resolves
@@ -80,7 +96,8 @@ describe('function getRawHtmlFromBtag', () => {
         'name':'Trev#11289',
         'urlName':'Trev-11289',
         'level':555,
-        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png'}]);
+        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png',
+        'visibility':{'name': 'PrivateVisibility','isPublic': true, 'isPrivate': false, 'isFriendsOnly': false}}]);
 
         expect(owapi.getRawHtmlFromBtag('Trev-11289'))
         .resolves
@@ -100,7 +117,8 @@ describe('function getAllStats', () => {
         'name':'Trev#11289',
         'urlName':'Trev-11289',
         'level':555,
-        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png'}]);
+        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png',
+        'visibility':{'name': 'PrivateVisibility','isPublic': true, 'isPrivate': false, 'isFriendsOnly': false}}]);
 
         await expect(owapi.getAllStats('Trev-11289', 'pc')).resolves.toMatchSnapshot();
     });
@@ -123,7 +141,8 @@ describe('function getModeStats', () => {
         'name':'Trev#11289',
         'urlName':'Trev-11289',
         'level':555,
-        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png'}]);
+        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png',
+        'visibility':{'name': 'PrivateVisibility','isPublic': true, 'isPrivate': false, 'isFriendsOnly': false}}]);
 
         await expect(owapi.getModeStats('Trev-11289','quickplay', 'pc')).resolves.toMatchSnapshot();
     });
@@ -141,7 +160,8 @@ describe('function getGeneralStats', () => {
         'name':'Trev#11289',
         'urlName':'Trev-11289',
         'level':555,
-        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png'}]);
+        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png',
+        'visibility':{'name': 'PrivateVisibility','isPublic': true, 'isPrivate': false, 'isFriendsOnly': false}}]);
 
         await expect(owapi.getGeneralStats('Trev-11289','pc')).resolves.toMatchSnapshot();
     });
@@ -157,7 +177,8 @@ describe('function getGeneralStats', () => {
         'name':'Trev#11289',
         'urlName':'Trev-11289',
         'level':555,
-        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png'}]);
+        'portrait':'https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png',
+        'visibility':{'name': 'PrivateVisibility','isPublic': true, 'isPrivate': false, 'isFriendsOnly': false}}]);
 
         await expect(owapi.getGeneralStats('Trev-11289')).resolves.toMatchSnapshot();
     });
