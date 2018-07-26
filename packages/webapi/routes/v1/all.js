@@ -28,7 +28,7 @@ router.get('/v1/all/:btag/:platform', async (ctx) => {
         return await ctx.throw(400, 'Invalid platform');
     }
 
-    const getAll = await owapi.getAllStats(ctx.params.btag, ctx.path.platform).catch((err) => {
+    const getAll = await owapi.getAllStats(ctx.params.btag, ctx.params.platform).catch((err) => {
         if (err === 'PLAYER_NOT_EXIST') {
             return ctx.throw(400, 'Player do not exist.');
         } else if (err === 'ACCOUNT_PRIVATE') {
