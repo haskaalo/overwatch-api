@@ -50,7 +50,7 @@ describe('Route all', () => {
     });
 });
 
-describe('Route general', async () => {
+describe('Route general', () => {
     test('/v1/general/:btag', async () => {
         const rp = await request.get('/v1/general/Trev-11289')
         .expect(200)
@@ -68,7 +68,7 @@ describe('Route general', async () => {
     });
 });
 
-describe('Route mode' , async () => {
+describe('Route mode', () => {
     test('/v1/mode/quickplay/:btag', async () => {
         const rp = await request.get('/v1/mode/quickplay/Trev-11289')
         .expect(200)

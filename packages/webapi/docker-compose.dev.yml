@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+    redis:
+        container_name: 'owapi_redis_dev'
+        image: redis:alpine
+        networks:
+            - app-network
+        ports:
+            - 6379:6379
+    owserver:
+        container_name: 'owapi_server'
+        build: .
+        networks:
+            - app-network
+        ports:
+            - 3000:3000
+        environment:
+            - 'REDIS_URL=redis://redis:6379'
+
+networks:
+    app-network:
+        driver: bridge

@@ -1,17 +1,18 @@
-const rp = require('request-promise');
+const axios = require('axios');
+
 
 async function getAccountByName(btag) {
     const serializedBtag = encodeURIComponent(btag.replace('-','#'));
-    const searchUser = await rp({
-        uri: `https://playoverwatch.com/en-us/search/account-by-name/${serializedBtag}`,
-        json: true,
-        timeout: 10000
+    const searchUser = await axios.get(`https://playoverwatch.com/en-us/search/account-by-name/${serializedBtag}`, {
+        timeout: 10000,
+        responseType: 'json',
     });
-    if (searchUser.length == 0) {
+
+    if (searchUser.data.length == 0) {
         throw 'PLAYER_NOT_EXIST';
     }
 
-    return searchUser;
+    return searchUser.data;
 }
 
 module.exports = getAccountByName;

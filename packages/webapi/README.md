@@ -41,11 +41,8 @@ Example output:
 
 ```json
 {
-  "rank": "3160",
-  "rank_name": "diamond",
-  "bnet_id": "350010705",
-  "prestige": 5,
-  "level": "24",
-  "profile": "https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png"
+  "rank": 3935,
+  "rank_name": "master",
+  "profile": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/8fb752e425af261dff0c2fb39535e06f9b110dfafcde7c8df321bc836811ba59.png"
 }
 ```

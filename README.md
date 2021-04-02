@@ -9,6 +9,6 @@ Overwatch-api is available as a [webserver api](https://github.com/tree/master/p
 
 ## License
 
-Copyright (c) 2018 Haskaalo
+Copyright (c) 2021 Haskaalo
 
 Licensed under MIT License

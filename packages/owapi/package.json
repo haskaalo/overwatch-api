@@ -1,18 +1,23 @@
 {
   "name": "owapi",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "main": "index.js",
   "repository": "https://github.com/haskaalo/overwatch-api.git",
-  "keywords": ["overwatch", "api", "ow", "blizzard"],
+  "keywords": [
+    "overwatch",
+    "api",
+    "ow",
+    "blizzard"
+  ],
   "author": "haskaalo",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest --env=node"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "koa": "^2.4.1",
-    "ms": "^2.1.1",
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5",
+    "koa": "^2.13.1",
     "request": "^2.83.0",
     "request-promise": "^4.2.2"
   }

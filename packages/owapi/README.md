@@ -22,7 +22,7 @@ console.log(stats)
 
 ### Errors
 
-* If user doesn't exist, it reject a string `'PLAYER_NOT_EXIST'`
+#### If user doesn't exist, it reject a string `'PLAYER_NOT_EXIST'`
 
 Example:
 ```js
@@ -35,7 +35,7 @@ const generalData = await owapi.general('totally-not-existing-user', platform).c
 
 ...
 ```
-* If player account is private, it reject a string `'ACCOUNT_PRIVATE'`
+#### If player account is private, it reject a string `'ACCOUNT_PRIVATE'`
 
 Example:
 ```js
@@ -47,7 +47,7 @@ const generalData = await owapi.general('some-user-with-private-account', platfo
 });
 ```
 
-* If platform doesn't exist, it return a type error (might go)
+#### If platform doesn't exist, it return a type error (might go)
 
 ### .getGeneralStats(btag, ?platform, ?html)
 Return general stats about a player such as level, rank, profile icon and more.
@@ -56,12 +56,9 @@ Example output:
 
 ```json
 {
-  "rank": "3160",
-  "rank_name": "diamond",
-  "bnet_id": "350010705",
-  "prestige": 5,
-  "level": "24",
-  "profile": "https://d1u1mce87gyfbn.cloudfront.net/game/unlocks/0x02500000000009E1.png"
+  "rank": 3935,
+  "rank_name": "master",
+  "profile": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/8fb752e425af261dff0c2fb39535e06f9b110dfafcde7c8df321bc836811ba59.png"
 }
 ```
 
@@ -106,6 +103,6 @@ Return an array of platforms owapi uses.
 
 ## License
 
-Copyright (c) 2018 Haskaalo
+Copyright (c) 2021 Haskaalo
 
 Licensed under MIT License
