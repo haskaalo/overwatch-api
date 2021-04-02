@@ -3,7 +3,7 @@
 	"scripts": {
 		"test": "npm-run-all test:*",
 		"test:jest": "jest --forceExit --env=node",
-		"test:eslint": "eslint ./**/*.js",
+		"test:eslint": "eslint --ext=js ./",
 		"install": "lerna bootstrap"
 	},
 	"devDependencies": {
