@@ -1,4 +1,5 @@
 {
+	"name": "overwatch-api",
 	"scripts": {
 		"test": "npm-run-all test:*",
 		"test:jest": "jest --forceExit --env=node",
