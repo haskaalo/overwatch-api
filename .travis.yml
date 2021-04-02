@@ -6,8 +6,6 @@ language: node_js
 node_js:
   - "14"
 
-dist: trusty
-
 env:
   - REDIS_URL="redis://:@localhost:6379"
 
