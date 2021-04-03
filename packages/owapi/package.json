@@ -1,6 +1,6 @@
 {
   "name": "owapi",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "main": "index.js",
   "repository": "https://github.com/haskaalo/overwatch-api.git",
   "keywords": [
@@ -17,8 +17,6 @@
   "dependencies": {
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.5",
-    "koa": "^2.13.1",
-    "request": "^2.83.0",
-    "request-promise": "^4.2.2"
+    "koa": "^2.13.1"
   }
 }
